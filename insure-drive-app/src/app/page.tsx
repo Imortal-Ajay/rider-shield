@@ -104,7 +104,7 @@ export default function RiderDashboard() {
               </div>
               <div>
                 <h1 className="text-3xl font-extrabold tracking-tight text-white drop-shadow-md">
-                  Rider Shield<span className="text-indigo-500">.</span>
+                  Insure Drive<span className="text-indigo-500">.</span>
                 </h1>
                 <p className="text-slate-400 text-sm mt-1 flex items-center gap-2 font-medium">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]" />

@@ -1,42 +1,54 @@
-# Rider Shield
+# 🚀 Insure Drive
+**AI-Powered Income Protection for Delivery Riders**
 
-## 🎯 Problem & Persona
-- **Persona**: Swiggy rider in Chennai earning ₹800-1200/day.
-- **Problem**: Riders lose ₹200-400/day during severe weather conditions like heavy rain and high pollution, leading to a 20-30% drop in weekly earnings.
-- **Solution**: A weekly premium parametric insurance model starting at a ₹49 base, dynamically AI-adjusted ±20% based on real-time location risk.
+## 🎯 Problem Statement
+Delivery riders working with platforms like Swiggy and Zomato rely heavily on daily working hours for income.
 
-## 🏗️ Solution Architecture
+External disruptions such as:
+- 🌧️ Heavy Rain
+- 🌡️ Extreme Heat
+- 😷 High Pollution
 
-```mermaid
-graph LR
-    A[Rider] --> B[Onboarding]
-    B --> C[AI Risk Profile]
-    C --> D[Weekly Policy]
-    D --> E{Triggers}
-    E -->|Condition Met| F[Auto Payout]
-```
+cause 20–30% weekly income loss.
+Currently, there is no financial safety net for these disruptions.
 
-- **Platform**: Responsive Web App deployed on Vercel.
-- **Tech Stack**: Next.js, Tailwind CSS, TypeScript.
+## 💡 Solution
+Insure Drive is an AI-powered parametric insurance platform that protects riders from income loss due to external conditions.
 
-## 🚀 Core Features (Phase 1 MVP)
-- Rider onboarding + risk profiling
-- Dynamic weekly premium calculator
-- 3 parametric triggers: Rain (>20mm/hr), Heat (>40°C), Pollution (AQI>300)
-- Mock auto-claim + payout simulation
-- Basic fraud detection (duplicate claims)
+Unlike traditional insurance, Insure Drive:
+- Detects disruptions automatically
+- Estimates actual work-hour loss
+- Validates rider activity to prevent misuse
+- Processes payouts instantly
+
+## ⚙️ Workflow
+1. Rider signs up and selects a weekly plan
+2. System monitors weather and pollution data
+3. Disruption detected (rain / heat / AQI)
+4. Work-hour loss estimated
+5. Rider activity validated
+6. Claim auto-triggered
+7. Payout calculated and processed
+
+## 🔥 Core Features
+- **⏱️ Work-Hour Based Payout:** Compensation tied to actual income loss
+- **🌧️ Parametric Triggers:** Rain > 20 mm/hr, Heat > 40°C, AQI > 300
+- **🛡️ Smart Validation:** Confirms rider activity, prevents false claims
+- **💰 Weekly Insurance Model:** Affordable premiums, AI-adjusted by location risk
 
 ## 🤖 AI/ML Integration
-- **Premium pricing:** ML model predicts location risk (low/medium/high) to natively adjust the weekly premium.
-- **Fraud detection:** GPS anomaly tracking coupled with claim pattern analysis.
-- **Future goals:** Weather prediction for proactive coverage.
+- **Risk-Based Pricing:** Premiums vary by zone risk
+- **Work-Loss Estimation:** Predicts hours lost per disruption
+- **Fraud Detection:** Flags anomalies in rider activity
 
-## 💰 Weekly Pricing Model
-- **Base Premium:** ₹49/week (covers 40 hours income protection)
-- **AI Adjustment:** ±20% based on Chennai zone flood history
-- **Examples:** 
-  - Anna Nagar (low risk) = ₹39
-  - Marina Beach (high risk) = ₹59
+## 💸 Pricing
+- **Base Premium:** ₹49/week
+- **Coverage:** Up to 40 hours
+- **AI Adjustment:** ±20%
+
+**Example:**
+- Low-risk zone → ₹39
+- High-risk zone → ₹59
 
 ## 📊 Parametric Triggers
 
@@ -45,3 +57,35 @@ graph LR
 | Heavy Rain | >20mm/hr | OpenWeatherMap | 4hrs wage |
 | Extreme Heat | >40°C | Weather API | 6hrs wage |
 | Severe Pollution | AQI>300 | Mock API | 3hrs wage |
+
+## 🛠️ Tech Stack
+- **Frontend:** React / Next.js
+- **Styling:** Tailwind CSS
+- **Language:** TypeScript / JavaScript
+- **Deployment:** Vercel
+- **APIs:** Weather & AQI APIs
+
+## 🎥 Prototype
+Includes:
+- Rider onboarding
+- Plan selection
+- Disruption simulation
+- Auto claim triggering
+- Payout calculation
+
+## 🚀 Future Enhancements
+- Predictive weather alerts
+- Advanced ML fraud detection
+- Integration with delivery platforms
+- Personalized insurance plans
+
+## 🏆 Differentiator
+Insure Drive calculates real income loss based on work hours.  
+No fixed payouts — only genuine, validated compensation.
+
+## 👥 Team TechExperts
+1. AJAY 
+2. VARSHATHA 
+3. MADHURA 
+4. HARISH 
+5. SARAVANA

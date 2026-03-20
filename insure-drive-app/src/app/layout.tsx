@@ -5,7 +5,7 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Rider Shield - Parametric Insurance for Riders',
+  title: 'Insure Drive - Parametric Insurance for Riders',
   description: 'AI-driven parametric insurance for delivery riders in Chennai.',
 };
 
