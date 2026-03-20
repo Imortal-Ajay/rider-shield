@@ -58,6 +58,24 @@ Unlike traditional insurance, Insure Drive:
 | Extreme Heat | >40°C | Weather API | 6hrs wage |
 | Severe Pollution | AQI>300 | Mock API | 3hrs wage |
 
+## 🛡️ Adversarial Defense & Anti-Spoofing Strategy
+To combat the "Market Crash" scenario where fraud rings use fake GPS to drain liquidity pools, **Insure Drive** implements a multi-layered verification logic that goes beyond simple location checks.
+
+### 1. Multi-Sensor Data Fusion (Spotting the Faker)
+*   **📡 Cellular/Wi-Fi Triangulation:** We cross-reference GPS coordinates with unique Cell Tower IDs and surrounding Wi-Fi SSIDs. A "genuine" rider's device will show a consistent shift in nearby access points. A faker using a "Mock Location" app typically fails to simulate the underlying network environment.
+*   **⚖️ Inertial Sensor Analysis:** Real-world movement is messy. We analyze Accelerometer and Gyroscope data. Static fakers or those using "joystick" simulators produce perfectly linear or unnaturally smooth movement profiles that lack the micro-vibrations and gravity-shifts of a moving motorbike.
+
+### 2. Graph-Based Fraud Ring Detection (Catching the Ring)
+*   **🕸️ Payout Proximity Cluster:** Our system flags "Simultaneous Triggering." If 50 riders in a 1km radius all claim a payout within a 2-minute window using identical device fingerprints or withdrawing to a tight cluster of digital wallets, the entire "ring" is quarantined for manual audit.
+*   **🔗 Device Fingerprinting:** We track `Canvas ID`, `WebGL Vendor`, and `Hardware Concurrency`. Fraud rings often use device farms or emulators; when dozens of "different" riders share 90%+ of their hardware metadata, they are flagged as a single adversarial unit.
+
+### 3. Hyperlocal Truth Verification (Airtight Logic)
+*   **🌤️ Oracle Cross-Referencing:** We don't just trust a "Rain" trigger. We correlate the rider's claim with 3rd party hyper-local weather Oracles AND the reported drop in average platform speed for *all* riders in that sector.
+*   **🔍 The "Stranded" vs "Spoofed" Test:** Genuine stranded workers show a pattern of "Zero Velocity + Active Session." Spoofers often forget to simulate a "working" state in the background. We require an active heartbeat from the delivery platform's API to confirm the rider was actually "On Shift" when the disruption occurred.
+
+### 4. Safe-Guard Mechanism (Protecting Honest Actors)
+*   **📉 Dynamic Trust Scoring:** Every rider has a "Trust Score." Long-term honest riders have their payouts expedited. New accounts or those with sensor anomalies are subject to a **Soft-Flag** (held for 24h) or required to provide a timestamped photo-verification of the street conditions before high-value payouts are released.
+
 ## 🛠️ Tech Stack
 - **Frontend:** React / Next.js
 - **Styling:** Tailwind CSS
