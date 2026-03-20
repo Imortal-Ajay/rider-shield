@@ -58,23 +58,50 @@ Unlike traditional insurance, Insure Drive:
 | Extreme Heat | >40°C | Weather API | 6hrs wage |
 | Severe Pollution | AQI>300 | Mock API | 3hrs wage |
 
-## 🛡️ Adversarial Defense & Anti-Spoofing Strategy
-To combat the "Market Crash" scenario where fraud rings use fake GPS to drain liquidity pools, **Insure Drive** implements a multi-layered verification logic that goes beyond simple location checks.
+## 🛡️ Adversarial Defense & Anti-Spoofing Strategy  
 
-### 1. Multi-Sensor Data Fusion (Spotting the Faker)
-*   **📡 Cellular/Wi-Fi Triangulation:** We cross-reference GPS coordinates with unique Cell Tower IDs and surrounding Wi-Fi SSIDs. A "genuine" rider's device will show a consistent shift in nearby access points. A faker using a "Mock Location" app typically fails to simulate the underlying network environment.
-*   **⚖️ Inertial Sensor Analysis:** Real-world movement is messy. We analyze Accelerometer and Gyroscope data. Static fakers or those using "joystick" simulators produce perfectly linear or unnaturally smooth movement profiles that lack the micro-vibrations and gravity-shifts of a moving motorbike.
+To handle large-scale fraud scenarios such as coordinated GPS spoofing attacks, Insure Drive implements a layered and practical verification system beyond basic location checks.  
 
-### 2. Graph-Based Fraud Ring Detection (Catching the Ring)
-*   **🕸️ Payout Proximity Cluster:** Our system flags "Simultaneous Triggering." If 50 riders in a 1km radius all claim a payout within a 2-minute window using identical device fingerprints or withdrawing to a tight cluster of digital wallets, the entire "ring" is quarantined for manual audit.
-*   **🔗 Device Fingerprinting:** We track `Canvas ID`, `WebGL Vendor`, and `Hardware Concurrency`. Fraud rings often use device farms or emulators; when dozens of "different" riders share 90%+ of their hardware metadata, they are flagged as a single adversarial unit.
+---
 
-### 3. Hyperlocal Truth Verification (Airtight Logic)
-*   **🌤️ Oracle Cross-Referencing:** We don't just trust a "Rain" trigger. We correlate the rider's claim with 3rd party hyper-local weather Oracles AND the reported drop in average platform speed for *all* riders in that sector.
-*   **🔍 The "Stranded" vs "Spoofed" Test:** Genuine stranded workers show a pattern of "Zero Velocity + Active Session." Spoofers often forget to simulate a "working" state in the background. We require an active heartbeat from the delivery platform's API to confirm the rider was actually "On Shift" when the disruption occurred.
+### 1. Differentiation: Genuine Rider vs Spoofed Claim  
 
-### 4. Safe-Guard Mechanism (Protecting Honest Actors)
-*   **📉 Dynamic Trust Scoring:** Every rider has a "Trust Score." Long-term honest riders have their payouts expedited. New accounts or those with sensor anomalies are subject to a **Soft-Flag** (held for 24h) or required to provide a timestamped photo-verification of the street conditions before high-value payouts are released.
+Our system distinguishes real riders from fraudulent actors using behavioral patterns:  
+
+- *Active Session Check:* Verifies if the rider was actively working (logged in / accepting orders) during the disruption  
+- *Movement Patterns:* Real riders show natural movement or stop patterns, while spoofed users often show unrealistic static or perfectly smooth movement  
+- *Disruption Consistency:* A genuine rider’s inactivity aligns with real-world disruption conditions (e.g., sudden stop during heavy rain)  
+
+---
+
+### 2. Data Signals Beyond GPS  
+
+Instead of relying only on GPS, the system evaluates multiple signals:  
+
+- 📍 Location consistency over time (no sudden unrealistic jumps)  
+- ⏱️ Activity logs (order acceptance, session status)  
+- 📊 Claim patterns (frequency and timing of claims)  
+- 🌦️ External data validation (weather API + area-wide impact)  
+
+If multiple riders trigger claims in an unusually synchronized way, the system flags potential coordinated fraud.  
+
+---
+
+### 3. UX Balance: Fairness for Genuine Riders  
+
+To avoid penalizing honest riders:  
+
+- *Soft Flagging:* Suspicious claims are temporarily held instead of instantly rejected  
+- *Delayed Verification:* High-risk claims are reviewed with additional checks  
+- *Trust-Based Priority:* Riders with consistent history receive faster approvals  
+
+This ensures that genuine riders facing real disruptions are not unfairly impacted while still protecting the system from abuse.  
+
+---
+
+### 🔐 Key Principle  
+
+> The system prioritizes *fair payouts for genuine riders* while maintaining strong safeguards against coordinated fraud attacks.
 
 ## 🛠️ Tech Stack
 - **Frontend:** React / Next.js
