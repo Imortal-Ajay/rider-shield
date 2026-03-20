@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #030014;
+    --foreground: #ffffff;
+  }
+  
+  body {
+    @apply bg-[#030014] text-slate-100 font-sans antialiased overflow-x-hidden relative;
+    background: radial-gradient(circle at top left, rgba(67, 56, 202, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at center, rgba(14, 165, 233, 0.05) 0%, transparent 60%);
+    background-color: #030014;
+    min-height: 100vh;
+  }
+}
+
+.glass-card {
+  @apply relative overflow-hidden bg-white/[0.02] backdrop-blur-2xl rounded-3xl border border-white/[0.05];
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 24px 48px -12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.glass-panel {
+  @apply bg-black/40 backdrop-blur-xl border border-white/[0.08] shadow-inner;
+}
+
+.premium-gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-200 via-cyan-200 to-purple-200;
+}
+
+/* Moving blobs background */
+.blob {
+  position: absolute;
+  filter: blur(80px);
+  z-index: -1;
+  opacity: 0.5;
+  border-radius: 50%;
+  animation: float 20s infinite alternate ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(5%, 5%) scale(1.1); }
+  100% { transform: translate(-5%, -5%) scale(0.9); }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #030014; 
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1); 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2); 
+}
