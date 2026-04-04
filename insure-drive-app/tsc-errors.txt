@@ -1,0 +1,7 @@
+﻿src/hooks/useContract.ts(68,22): error TS2339: Property 'isActive' does not exist on type 'ContractEvent<any[]>'.
+src/hooks/useContract.ts(69,47): error TS2339: Property 'payoutPerEvent' does not exist on type 'ContractEvent<any[]>'.
+src/hooks/useContract.ts(70,30): error TS2339: Property 'timestamp' does not exist on type 'ContractEvent<any[]>'.
+src/hooks/useWallet.ts(63,88): error TS2344: Type 'typeof BrowserProvider' does not satisfy the constraint '(...args: any) => any'.
+  Type 'typeof BrowserProvider' provides no match for the signature '(...args: any): any'.
+src/hooks/useWallet.ts(91,88): error TS2344: Type 'typeof BrowserProvider' does not satisfy the constraint '(...args: any) => any'.
+  Type 'typeof BrowserProvider' provides no match for the signature '(...args: any): any'.
