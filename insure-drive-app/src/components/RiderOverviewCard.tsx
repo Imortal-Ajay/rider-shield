@@ -47,12 +47,6 @@ export function RiderOverviewCard({
   const risk = ZONE_RISK[selectedZone];
   const isEnrolled = riderData?.isEnrolled ?? false;
 
-  const riskColor =
-    risk.level === 'Low'    ? 'text-emerald-400 border-emerald-500/30 bg-emerald-500/10' :
-    risk.level === 'Medium' ? 'text-amber-400 border-amber-500/30 bg-amber-500/10' :
-    risk.level === 'High'   ? 'text-rose-400 border-rose-500/30 bg-rose-500/10' :
-    'text-red-500 border-red-500/50 bg-red-500/20 animate-pulse';
-
   const aiLevel = aiData?.riskLevel ?? risk.level;
   const aiLevelColor =
     aiLevel === 'Low'      ? 'text-emerald-400' :

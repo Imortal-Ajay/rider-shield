@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   CloudRain, Thermometer, Wind, Zap, Radio,
-  CheckCircle2, AlertTriangle, Loader2, UserX, Activity
+  CheckCircle2, AlertTriangle, Loader2
 } from 'lucide-react';
 import type { EventData } from '@/hooks/useContract';
 
